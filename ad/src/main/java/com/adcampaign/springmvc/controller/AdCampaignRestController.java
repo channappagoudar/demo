@@ -59,10 +59,11 @@ public class AdCampaignRestController {
         System.out.println("Creating Partner " + partner.getpartner_id());
  
         if (partnerService.ispartnerexist(partner)) {
+        	
             System.out.println("A Partner with name " + partner.getpartner_id() + " already exist");
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
- 
+        
         partnerService.savepartner(partner);
  
         HttpHeaders headers = new HttpHeaders();

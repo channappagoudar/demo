@@ -1,6 +1,8 @@
 package com.adcampaign.springmvc.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,6 +21,14 @@ public class PartnerServiceImpl implements PartnerService{
 	}
 
 	public List<Partner> findallpartners() {
+		/*for(Partner partner : partners){
+			Calendar expiration_date = (Calendar) partner.getcreation_time().clone();
+			expiration_date.add(Calendar.MINUTE, partner.getduration());
+			
+			if(expiration_date.after(Calendar.getInstance())){
+			deletebypartner_id(partner.getpartner_id());
+			}
+		}*/
 		return partners;
 	}
 	
@@ -33,6 +43,7 @@ public class PartnerServiceImpl implements PartnerService{
 	}
 	
 	public void savepartner(Partner partner) {
+		partner.setcreation_time(Calendar.getInstance());
 		partners.add(partner);
 	}
 

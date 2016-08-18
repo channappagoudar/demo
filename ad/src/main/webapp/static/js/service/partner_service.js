@@ -5,8 +5,8 @@ angular.module('myApp').factory('PartnerService', ['$http', '$q', function($http
 	var REST_SERVICE_URI = 'http://localhost:8080/ad/partner/';
 
 	var factory = {
-			fetchAllPartners: fetchAllPartners,
 			fetchPartner: fetchPartner,
+			fetchAllPartners: fetchAllPartners,
 			createPartner: createPartner,
 			updatePartner:updatePartner,
 			deletePartner:deletePartner
@@ -19,9 +19,12 @@ angular.module('myApp').factory('PartnerService', ['$http', '$q', function($http
 		$http.get(REST_SERVICE_URI+partner_id)
 		.then(
 				function (response) {
+					console.log("RESPONSE:" + JSON.stringify(response));
+
 					deferred.resolve(response.data);
 				},
 				function(errResponse){
+					alert("This Partner has a active posting");
 					console.error('Error while fetching Partners');
 					deferred.reject(errResponse);
 				}
@@ -45,11 +48,6 @@ angular.module('myApp').factory('PartnerService', ['$http', '$q', function($http
 	}
 
 	function createPartner(partner) {
-		/*
-		alert(partner.partner_id);
-		alert(partner.duration);
-		alert(partner.ad_content);
-		*/
 		var deferred = $q.defer();
 		$http.post(REST_SERVICE_URI, partner)
 		.then(

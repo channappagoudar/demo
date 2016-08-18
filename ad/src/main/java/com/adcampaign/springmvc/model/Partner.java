@@ -1,19 +1,32 @@
 package com.adcampaign.springmvc.model;
 
+import java.util.Calendar;
+
 public class Partner {
+	
+	private Calendar creation_time;
+
+	public Calendar getcreation_time() {
+		return creation_time;
+	}
+
+	public void setcreation_time(Calendar creation_time) {
+		this.creation_time = creation_time;
+	}
 
 	private String partner_id;
 	
-	private long duration;
+	private int duration;
 	
 	private String ad_content;
 	
 	
 	public Partner(){
-		partner_id="";
+		creation_time=Calendar.getInstance();
 	}
 	
-	public Partner( String partner_id,long duration, String ad_content){
+	public Partner( String partner_id,int duration, String ad_content){
+		this.creation_time=Calendar.getInstance();
 		this.partner_id = partner_id;
 		this.duration = duration;
 		this.ad_content = ad_content;
@@ -27,11 +40,11 @@ public class Partner {
 		this.partner_id = partner_id;
 	}
 
-	public long getduration() {
+	public int getduration() {
 		return duration;
 	}
 
-	public void setduration(long duration) {
+	public void setduration(int duration) {
 		this.duration = duration;
 	}
 
