@@ -1,0 +1,24 @@
+Used AngularJS as UI Framework
+USed Spring MVC as web app framework
+Project can be built using Maven, POM file supplied
+Tested on Tomcat 8.0.6 runtime
+
+
+* Describe a fault tolerant deployment topology for your application, and the types of failures it would and would not be resilient to.
+
+A fault tolerant deployment topology would involve either verical or horizontal scaling or a combination of both
+horizontal scaling would increases the availbilty during node failures
+Multiple nodes can be fronted by a load balancer 
+
+* Discuss the advantages and disadvantages of your persistence mechanism.
+
+I used a ArrayList, it is only persisted until next JVM restart.
+Had a DB been used, the objects could be persisted despite JVM restart
+
+* Add a URL to return a list of all campaigns as JSON.
+
+I have implemented this usecase
+
+* Add support for multiple ad campaigns per partner.
+
+Did not implement in this release
